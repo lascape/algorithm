@@ -9,10 +9,10 @@ func lengthOfLIS(nums []int) int {
 	var dp = make([]int, len(nums))
 	dp[0] = 1
 	maxans := 1
-	for i := 0; i < len(nums); i++ {
+	for i, a := range nums {
 		dp[i] = 1
-		for j := 0; j < i; j++ {
-			if nums[i] > nums[j] {
+		for j, b := range nums[:i] {
+			if a > b {
 				dp[i] = int(math.Max(float64(dp[i]), float64(dp[j]+1)))
 			}
 		}
