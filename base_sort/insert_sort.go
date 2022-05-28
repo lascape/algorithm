@@ -1,4 +1,4 @@
-package base
+package base_sort
 
 type InsertSort struct{}
 
