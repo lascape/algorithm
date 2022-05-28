@@ -1,20 +1,22 @@
 package base
 
-func MergeSort(array []int) {
+type MergeSort struct{}
+
+func (m MergeSort) Sort(array []int) {
 	helper := make([]int, len(array))
-	mergeSort(array, helper, 0, len(array)-1)
+	m.mergeSort(array, helper, 0, len(array)-1)
 }
 
-func mergeSort(array []int, helper []int, left, right int) {
+func (m MergeSort) mergeSort(array []int, helper []int, left, right int) {
 	if left < right {
 		mid := (left + right) / 2
-		mergeSort(array, helper, left, mid)
-		mergeSort(array, helper, mid+1, right)
-		mergeSort2(array, helper, left, mid, right)
+		m.mergeSort(array, helper, left, mid)
+		m.mergeSort(array, helper, mid+1, right)
+		m.mergeSort2(array, helper, left, mid, right)
 	}
 }
 
-func mergeSort2(array []int, helper []int, left, mid, right int) {
+func (m MergeSort) mergeSort2(array []int, helper []int, left, mid, right int) {
 	for i := left; i <= right; i++ {
 		helper[i] = array[i]
 	}

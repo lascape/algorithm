@@ -1,10 +1,8 @@
 package base
 
-import (
-	"testing"
-)
+import "testing"
 
-func TestMergeSort(t *testing.T) {
+func TestSelectionSort_Sort(t *testing.T) {
 	tests := []struct {
 		array  []int
 		output []int
@@ -19,7 +17,7 @@ func TestMergeSort(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		MergeSort{}.Sort(tt.array)
+		SelectionSort{}.Sort(tt.array)
 		for i, v := range tt.array {
 			if tt.output[i] != v {
 				t.Errorf("want: %v,result: %v", tt.array, tt.output)
